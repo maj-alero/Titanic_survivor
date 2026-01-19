@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Titanic Survival Predictor</title>
+        <style>
+        body {
+            font-family: Arial;
+            background-color: #f4f4f4;
+            padding: 40px;
+        }
+        form {
+            background: white;
+            padding: 30px;
+            width: 320px;
+        }
+        input, button {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Titanic Survival Prediction</h2>
+
+<form method="POST">
+    <input type="number" name="pclass" placeholder="Passenger Class (1-3)" required>
+
+    <select name="sex" required>
+        <option value="1">Female</option>
+        <option value="0">Male</option>
+    </select>
+
+    <input type="number" name="age" placeholder="Age" step="0.1" required>
+    <input type="number" name="sibsp" placeholder="Siblings/Spouses" required>
+    <input type="number" name="parch" placeholder="Parents/Children" required>
+    <input type="number" name="fare" placeholder="Fare" step="0.01" required>
+
+    <select name="embarked" required>
+        <option value="S">Southampton</option>
+        <option value="C">Cherbourg</option>
+        <option value="Q">Queenstown</option>
+    </select>
+
+    <button type="submit">Predict</button>
+</form>
+
+{% if prediction %}
+    <h3>Prediction: {{ prediction }}</h3>
+{% endif %}
+
+</body>
+</html>
